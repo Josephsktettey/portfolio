@@ -1,0 +1,237 @@
+/* Layout: header, hero, sections, footer. */
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11, 11, 12, 0.88);
+  backdrop-filter: saturate(160%) blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-h);
+}
+
+.header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.header__avatar {
+  display: block;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-accent-bright);
+}
+
+.header__nav ul {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.header__nav a {
+  display: block;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  color: var(--color-muted);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.header__nav a:hover {
+  color: var(--color-accent-text);
+  background: var(--color-accent-soft);
+}
+
+.header__toggle {
+  display: none;
+  min-height: 40px;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .header__toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .header__nav {
+    display: none;
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    padding: 0.5rem var(--gutter) 1rem;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header__nav.is-open {
+    display: block;
+  }
+
+  .header__nav ul {
+    flex-direction: column;
+  }
+
+  .header__nav a {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+/* Hero */
+.hero {
+  padding-block: clamp(3rem, 9vw, 6.5rem);
+}
+
+.hero__inner {
+  display: grid;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+.hero__photo {
+  order: -1;
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid var(--color-border);
+  outline: 2px solid var(--color-accent-bright);
+  outline-offset: 6px;
+  background: var(--color-surface);
+}
+
+@media (min-width: 820px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    gap: 3rem;
+  }
+
+  .hero__photo {
+    order: 0;
+    max-width: 360px;
+    justify-self: end;
+  }
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--color-accent-bright);
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.hero__title {
+  font-size: clamp(2.4rem, 6vw, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.hero__role {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--color-accent-text);
+  font-size: 0.6em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.hero__intro {
+  max-width: 36rem;
+  margin-top: 1.5rem;
+  color: var(--color-muted);
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+/* Sections */
+.section {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+  border-block: 1px solid var(--color-border);
+}
+
+.section__title {
+  margin-bottom: 1.75rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  letter-spacing: -0.02em;
+}
+
+.section__title::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin-top: 0.7rem;
+  background: var(--color-accent-bright);
+  border-radius: 2px;
+}
+
+.prose {
+  max-width: 42rem;
+}
+
+.prose p + p {
+  margin-top: 1rem;
+}
+
+.contact__address {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+.footer {
+  padding-block: 1.75rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer a:hover {
+  color: var(--color-accent-text);
+}

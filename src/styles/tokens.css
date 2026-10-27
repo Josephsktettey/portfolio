@@ -1,0 +1,39 @@
+/* Design tokens: the one place colours, spacing and type are defined.
+   Change a value here and the whole site follows. */
+
+:root {
+  color-scheme: dark;
+
+  /* Colour (dark theme) */
+  --color-bg: #0b0b0c;
+  --color-bg-alt: #111113;
+  --color-surface: #161618;
+  --color-surface-2: #1f1f22;
+  --color-text: #f4f4f2;
+  --color-muted: #a3a3a0;
+  --color-border: #2a2a2d;
+
+  /* Orange. Buttons use the deeper shade (white text stays readable on it);
+     text and links use the lighter shade (readable on dark backgrounds);
+     the bright shade is for decoration only. */
+  --color-accent: #c2410c;
+  --color-accent-hover: #9a3412;
+  --color-accent-bright: #ea580c;
+  --color-accent-text: #fb923c;
+  --color-accent-soft: rgba(251, 146, 60, 0.12);
+
+  /* Type */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+
+  /* Layout */
+  --container: 1120px;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --header-h: 68px;
+  --radius: 10px;
+
+  /* Effects */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

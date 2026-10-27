@@ -1,0 +1,145 @@
+/* Components: project cards, skill groups, tags and the reveal effect. */
+
+/* Project cards */
+.projects {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+
+.projects > li {
+  display: flex;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s var(--ease), transform 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: #3d3d42;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Screenshots show in full, in their natural landscape shape (no cropping). */
+.card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 550;
+  object-fit: contain;
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 1.4rem;
+}
+
+.card__title {
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.card__subtitle {
+  margin-top: 0.15rem;
+  color: var(--color-accent-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.card__text {
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.97rem;
+}
+
+.card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.btn--sm {
+  min-height: 40px;
+  padding: 0.45rem 1rem;
+  font-size: 0.92rem;
+}
+
+/* Tags (also used by skills) */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.tags li {
+  padding: 0.15rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface-2);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* Skills */
+.skills {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+.skill-group {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+}
+
+.skill-group__title {
+  font-size: 1.05rem;
+}
+
+.skill-group__note {
+  margin-top: 0.15rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.skill-group .tags li {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.75rem;
+}
+
+/* Reveal on scroll: added by the useReveal hook */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
+}
